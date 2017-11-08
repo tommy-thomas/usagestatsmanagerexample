@@ -22,6 +22,8 @@ public class UsageStatVH extends RecyclerView.ViewHolder {
     public void bindTo(UsageStatsWrapper usageStatsWrapper) {
         appIcon.setImageDrawable(usageStatsWrapper.getAppIcon());
         appName.setText(usageStatsWrapper.getAppName());
+
+
         if (usageStatsWrapper.getUsageStats() == null){
             lastTimeUsed.setText(R.string.last_time_used_never);
         }else if (usageStatsWrapper.getUsageStats().getLastTimeUsed() == 0L){

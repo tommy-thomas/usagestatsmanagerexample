@@ -28,6 +28,7 @@ public final class UsageStatsWrapper implements Comparable<UsageStatsWrapper> {
         return appName;
     }
 
+
     @Override
     public int compareTo(@NonNull UsageStatsWrapper usageStatsWrapper) {
         if (usageStats == null && usageStatsWrapper.getUsageStats() != null) {

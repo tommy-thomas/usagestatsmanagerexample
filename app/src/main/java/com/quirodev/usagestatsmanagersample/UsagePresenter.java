@@ -21,7 +21,7 @@ public class UsagePresenter implements UsageContract.Presenter {
 
     private static final int flags = PackageManager.GET_META_DATA |
             PackageManager.GET_SHARED_LIBRARY_FILES |
-            PackageManager.GET_UNINSTALLED_PACKAGES;
+                PackageManager.GET_UNINSTALLED_PACKAGES;
 
     private UsageStatsManager usageStatsManager;
     private PackageManager packageManager;
@@ -37,7 +37,8 @@ public class UsagePresenter implements UsageContract.Presenter {
 
     private long getStartTime() {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.YEAR, -1);
+        //calendar.add(Calendar.YEAR, -1);
+        calendar.add(Calendar.DAY_OF_WEEK , -3);
         return calendar.getTimeInMillis();
     }
 
