@@ -6,6 +6,7 @@ import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
@@ -54,9 +55,9 @@ public class UsagePresenter implements UsageContract.Presenter {
 
         List<String> installedApps = getInstalledAppList();
 
-        Map<String, UsageStats> usageStats = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-2), getStartTime(-1));
-        Map<String, UsageStats> usageStatsDayTwo = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-3), getStartTime(-2));
-        Map<String, UsageStats> usageStatsDayThree = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-4), getStartTime(-3));
+        Map<String, UsageStats> usageStats = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-1), getStartTime(0));
+        Map<String, UsageStats> usageStatsDayTwo = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-2), getStartTime(-1));
+        Map<String, UsageStats> usageStatsDayThree = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-3), getStartTime(-2));
 
         List<UsageStats> stats = new ArrayList<>();
         stats.addAll(usageStats.values());
@@ -86,7 +87,7 @@ public class UsagePresenter implements UsageContract.Presenter {
         return installedApps;
     }
 
-    private List<UsageStatsWrapper> buildUsageStatsWrapper(List<String> packageNames, List<UsageStats> usageStatses , List<UsageStats> usageStatsDayOne , List<UsageStats> usageStatsDayTwo) {
+    private List<UsageStatsWrapper> buildUsageStatsWrapper(List<String> packageNames, List<UsageStats> usageStatses , List<UsageStats> usageStatsDayTwo , List<UsageStats> usageStatsDayThree) {
         List<UsageStatsWrapper> list = new ArrayList<>();
         for (String name : packageNames) {
             boolean added = false;
@@ -98,14 +99,14 @@ public class UsagePresenter implements UsageContract.Presenter {
                     statsList.add(stat);
                 }
             }
-            for (UsageStats stat : usageStatsDayOne) {
+            for (UsageStats stat : usageStatsDayTwo) {
                 if (name.equals(stat.getPackageName())) {
                     // added = true;
                     // list.add(fromUsageStat(stat));
                     statsList.add(stat);
                 }
             }
-            for (UsageStats stat : usageStatsDayTwo) {
+            for (UsageStats stat : usageStatsDayThree) {
                 if (name.equals(stat.getPackageName())) {
                     // added = true;
                     // list.add(fromUsageStat(stat));
@@ -117,6 +118,7 @@ public class UsagePresenter implements UsageContract.Presenter {
             } else {
                 list.add(fromUsageStat(name));
             }
+            Log.v("ListCount" , String.valueOf(statsList.size()));
         }
         Collections.sort(list);
         return list;

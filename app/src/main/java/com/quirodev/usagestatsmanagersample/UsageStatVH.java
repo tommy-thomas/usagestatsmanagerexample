@@ -30,7 +30,7 @@ public class UsageStatVH extends RecyclerView.ViewHolder {
         appIcon.setImageDrawable(usageStatsWrapper.getAppIcon());
         appName.setText(usageStatsWrapper.getAppName());
 
-        if(usageStatsWrapper.getUsageStats() != null && usageStatsWrapper.getUsageStats().isEmpty()  ){
+        if(usageStatsWrapper.getUsageStats() != null && !usageStatsWrapper.getUsageStats().isEmpty()  ){
             if (usageStatsWrapper.getUsageStats().get(0) == null){
                 lastTimeUsed.setText(R.string.last_time_used_never);
             }else if (usageStatsWrapper.getUsageStats().get(0).getLastTimeUsed() == 0L){
@@ -42,22 +42,18 @@ public class UsageStatVH extends RecyclerView.ViewHolder {
                 lastTimeUsed.setText(DateUtils.formatDate(stats) + "   " + DateUtils.format(stats));
             }
 
-            if (usageStatsWrapper.getUsageStats().get(1) == null){
-                lastTimeUsed.setText(R.string.last_time_used_never);
-            }else if (usageStatsWrapper.getUsageStats().get(1).getLastTimeUsed() == 0L){
-                lastTimeUsed.setText(R.string.last_time_used_never);
-            } else{
+            if (usageStatsWrapper.getUsageStats().size() < 2 ){
+                //lastTimeUsed.setText(R.string.last_time_used_never);
+            }  else {
 //            lastTimeUsed.setText(App.getApp().getString(R.string.last_time_used,
 //                    DateUtils.format(usageStatsWrapper)));
                 UsageStats stats = usageStatsWrapper.getUsageStats().get(1);
                 lastTimeUsedDayTwo.setText(DateUtils.formatDate(stats) + "   " + DateUtils.format(stats));
             }
 
-            if (usageStatsWrapper.getUsageStats().get(2) == null){
-                lastTimeUsed.setText(R.string.last_time_used_never);
-            }else if (usageStatsWrapper.getUsageStats().get(2).getLastTimeUsed() == 0L){
-                lastTimeUsed.setText(R.string.last_time_used_never);
-            } else{
+            if ( usageStatsWrapper.getUsageStats().size() < 3 ) {
+                //lastTimeUsed.setText(R.string.last_time_used_never);
+            } else {
 //            lastTimeUsed.setText(App.getApp().getString(R.string.last_time_used,
 //                    DateUtils.format(usageStatsWrapper)));
                 UsageStats stats = usageStatsWrapper.getUsageStats().get(2);

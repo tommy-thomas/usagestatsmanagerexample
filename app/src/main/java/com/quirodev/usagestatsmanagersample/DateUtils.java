@@ -11,7 +11,6 @@ public class DateUtils {
     //return format.format(usageStatsWrapper.getUsageStats().getTotalTimeInForeground());
 
     public static String format(UsageStats usageStats) {
-
         DateFormat format = new SimpleDateFormat("mm:ss:SSS");
         return format.format(usageStats.getTotalTimeInForeground());
     }
@@ -19,7 +18,6 @@ public class DateUtils {
     public static String formatDate(UsageStats usageStats) {
         DateFormat format = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
         return format.format(usageStats.getLastTimeStamp());
-
     }
 }
 
