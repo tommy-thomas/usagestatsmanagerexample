@@ -10,27 +10,16 @@ public class DateUtils {
     //DateFormat format = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
     //return format.format(usageStatsWrapper.getUsageStats().getTotalTimeInForeground());
 
-    public static String format(UsageStatsWrapper usageStatsWrapper){
+    public static String format(UsageStats usageStats) {
 
-        DateFormat format = new SimpleDateFormat("mm:ss:SSS");
-        return format.format(usageStatsWrapper.getUsageStats().getTotalTimeInForeground());
-    }
-
-    public static String formatDate(UsageStatsWrapper usageStatsWrapper){
-        DateFormat format = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
-        return format.format(usageStatsWrapper.getUsageStats().getLastTimeStamp());
-
-    }
-
-    public static String format(UsageStats usageStats){
         DateFormat format = new SimpleDateFormat("mm:ss:SSS");
         return format.format(usageStats.getTotalTimeInForeground());
-
     }
 
-    public static String formatDate(UsageStats usageStats){
+    public static String formatDate(UsageStats usageStats) {
         DateFormat format = SimpleDateFormat.getDateInstance(DateFormat.SHORT);
         return format.format(usageStats.getLastTimeStamp());
 
     }
 }
+

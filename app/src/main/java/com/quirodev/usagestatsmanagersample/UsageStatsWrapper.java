@@ -4,19 +4,21 @@ import android.app.usage.UsageStats;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
+
 public final class UsageStatsWrapper implements Comparable<UsageStatsWrapper> {
 
-    private final UsageStats usageStats;
+    private final ArrayList<UsageStats> usageStats;
     private final Drawable appIcon;
     private final String appName;
 
-    public UsageStatsWrapper(UsageStats usageStats, Drawable appIcon, String appName) {
+    public UsageStatsWrapper(ArrayList<UsageStats> usageStats, Drawable appIcon, String appName) {
         this.usageStats = usageStats;
         this.appIcon = appIcon;
         this.appName = appName;
     }
 
-    public UsageStats getUsageStats() {
+    public ArrayList<UsageStats> getUsageStats() {
         return usageStats;
     }
 

@@ -44,4 +44,14 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         tools:text="Last used day two: yesterday at 18.54" />
 
+    <TextView
+        android:id="@+id/last_used_day_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/last_used_day_two"
+        android:layout_toEndOf="@id/icon"
+        android:paddingBottom="2dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        tools:text="Last used day two: yesterday at 18.54" />
+
 </RelativeLayout>
