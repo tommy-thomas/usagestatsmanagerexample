@@ -42,18 +42,15 @@ public class UsageStatVH extends RecyclerView.ViewHolder {
                 lastTimeUsed.setText(DateUtils.formatDate(stats) + "   " + DateUtils.format(stats));
             }
 
-            if (usageStatsWrapper.getUsageStats().size() < 2 ){
-                //lastTimeUsed.setText(R.string.last_time_used_never);
-            }  else {
+            if ( usageStatsWrapper.getUsageStats().size() > 1 ) {
 //            lastTimeUsed.setText(App.getApp().getString(R.string.last_time_used,
 //                    DateUtils.format(usageStatsWrapper)));
                 UsageStats stats = usageStatsWrapper.getUsageStats().get(1);
                 lastTimeUsedDayTwo.setText(DateUtils.formatDate(stats) + "   " + DateUtils.format(stats));
             }
 
-            if ( usageStatsWrapper.getUsageStats().size() < 3 ) {
-                //lastTimeUsed.setText(R.string.last_time_used_never);
-            } else {
+
+                if ( usageStatsWrapper.getUsageStats().size() > 2 ) {
 //            lastTimeUsed.setText(App.getApp().getString(R.string.last_time_used,
 //                    DateUtils.format(usageStatsWrapper)));
                 UsageStats stats = usageStatsWrapper.getUsageStats().get(2);
