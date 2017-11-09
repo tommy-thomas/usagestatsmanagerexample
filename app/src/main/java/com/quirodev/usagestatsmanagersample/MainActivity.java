@@ -1,5 +1,6 @@
 package com.quirodev.usagestatsmanagersample;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements UsageContract.Vie
     private UsageContract.Presenter presenter;
     private UsageStatAdapter adapter;
 
+    private static Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,12 @@ public class MainActivity extends AppCompatActivity implements UsageContract.Vie
         permissionMessage.setOnClickListener(v -> openSettings());
 
         presenter = new UsagePresenter(this, this);
+
+        mContext = getApplicationContext();
+    }
+
+    public static Context getContext(){
+        return mContext;
     }
 
     private void openSettings() {

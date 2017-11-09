@@ -35,10 +35,10 @@ public class UsagePresenter implements UsageContract.Presenter {
         this.context = context;
     }
 
-    private long getStartTime() {
+    private long getStartTime(int span) {
         Calendar calendar = Calendar.getInstance();
         //calendar.add(Calendar.YEAR, -1);
-        calendar.add(Calendar.DAY_OF_WEEK , -3);
+        calendar.add(Calendar.DATE, span);
         return calendar.getTimeInMillis();
     }
 
@@ -50,7 +50,7 @@ public class UsagePresenter implements UsageContract.Presenter {
         }
 
         List<String> installedApps = getInstalledAppList();
-        Map<String, UsageStats> usageStats = usageStatsManager.queryAndAggregateUsageStats(getStartTime(), System.currentTimeMillis());
+        Map<String, UsageStats> usageStats = usageStatsManager.queryAndAggregateUsageStats(getStartTime(-2), getStartTime(-1));
         List<UsageStats> stats = new ArrayList<>();
         stats.addAll(usageStats.values());
 

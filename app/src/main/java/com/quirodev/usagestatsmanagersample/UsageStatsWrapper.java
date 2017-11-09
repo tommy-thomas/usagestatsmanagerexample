@@ -38,8 +38,9 @@ public final class UsageStatsWrapper implements Comparable<UsageStatsWrapper> {
         } else if (usageStatsWrapper.getUsageStats() == null && usageStats == null) {
             return 0;
         } else {
-            return Long.compare(usageStatsWrapper.getUsageStats().getLastTimeUsed(),
-                    usageStats.getLastTimeUsed());
+//            return Long.compare(usageStatsWrapper.getUsageStats().getTotalTimeInForeground(),
+//                    usageStats.getTotalTimeInForeground());
+            return 0;
         }
     }
 }
