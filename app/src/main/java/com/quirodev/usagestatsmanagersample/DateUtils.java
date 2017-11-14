@@ -12,7 +12,7 @@ public class DateUtils {
 
     public static String format(UsageStats usageStats) {
         DateFormat format = new SimpleDateFormat("mm:ss:SSS");
-        return format.format(usageStats.getTotalTimeInForeground());
+        return format.format(usageStats.getLastTimeUsed());
     }
 
     public static String formatDate(UsageStats usageStats) {

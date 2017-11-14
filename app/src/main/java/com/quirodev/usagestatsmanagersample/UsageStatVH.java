@@ -31,11 +31,11 @@ public class UsageStatVH extends RecyclerView.ViewHolder {
         appName.setText(usageStatsWrapper.getAppName());
 
         if(usageStatsWrapper.getUsageStats() != null && !usageStatsWrapper.getUsageStats().isEmpty()  ){
-            if (usageStatsWrapper.getUsageStats().get(0) == null){
-                lastTimeUsed.setText(R.string.last_time_used_never);
-            }else if (usageStatsWrapper.getUsageStats().get(0).getLastTimeUsed() == 0L){
-                lastTimeUsed.setText(R.string.last_time_used_never);
-            } else{
+            if ( usageStatsWrapper.getUsageStats().size() >= 1){
+//                lastTimeUsed.setText(R.string.last_time_used_never);
+//            }else if (usageStatsWrapper.getUsageStats().get(0).getLastTimeUsed() == 0L){
+//                lastTimeUsed.setText(R.string.last_time_used_never);
+//            } else{
 //            lastTimeUsed.setText(App.getApp().getString(R.string.last_time_used,
 //                    DateUtils.format(usageStatsWrapper)));
                 UsageStats stats = usageStatsWrapper.getUsageStats().get(0);
